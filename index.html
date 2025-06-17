@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Links</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 255, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .profile {
+            margin-bottom: 40px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ff00);
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite, float 6s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            font-size: 48px;
+            color: white;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.5),
+                0 0 40px rgba(255, 0, 255, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(0, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+            animation: rotate 4s linear infinite;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.1);
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.8),
+                0 0 60px rgba(255, 0, 255, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .profile h1 {
+            color: #00ffff;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 
+                0 0 10px rgba(0, 255, 255, 0.8),
+                0 0 20px rgba(0, 255, 255, 0.5),
+                0 0 30px rgba(0, 255, 255, 0.3);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        .profile p {
+            color: rgba(0, 255, 255, 0.8);
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            font-family: 'Consolas', monospace;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .link-button {
+            display: block;
+            width: 100%;
+            padding: 18px 25px;
+            margin: 15px 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 15px;
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            font-family: 'Consolas', 'Monaco', monospace;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+            box-shadow: 
+                0 4px 15px rgba(0, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .link-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .link-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, transparent 70%);
+            transition: all 0.5s;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .link-button:hover::before {
+            left: 100%;
+        }
+
+        .link-button:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .link-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 40px rgba(0, 255, 255, 0.4),
+                0 0 20px rgba(0, 255, 255, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(0, 255, 255, 0.8);
+            background: rgba(0, 0, 0, 0.9);
+            color: #ffffff;
+            text-shadow: 
+                0 0 10px rgba(0, 255, 255, 0.8),
+                0 0 20px rgba(0, 255, 255, 0.6);
+        }
+
+        .website-btn {
+            border-color: rgba(0, 255, 255, 0.5);
+        }
+
+        .website-btn:hover {
+            border-color: rgba(0, 255, 255, 1);
+            box-shadow: 
+                0 20px 40px rgba(0, 255, 255, 0.4),
+                0 0 30px rgba(0, 255, 255, 0.8);
+        }
+
+        .youtube-btn {
+            border-color: rgba(255, 0, 100, 0.5);
+        }
+
+        .youtube-btn:hover {
+            border-color: rgba(255, 0, 100, 1);
+            box-shadow: 
+                0 20px 40px rgba(255, 0, 100, 0.4),
+                0 0 30px rgba(255, 0, 100, 0.8);
+            color: #ff0064;
+            text-shadow: 
+                0 0 10px rgba(255, 0, 100, 0.8),
+                0 0 20px rgba(255, 0, 100, 0.6);
+        }
+
+        .icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .tech-particle {
+            position: absolute;
+            color: rgba(0, 255, 255, 0.6);
+            font-size: 12px;
+            animation: floatTech 15s linear infinite;
+            font-family: 'Consolas', monospace;
+        }
+
+        .tech-particle:nth-child(odd) {
+            color: rgba(255, 0, 255, 0.6);
+        }
+
+        .tech-particle:nth-child(3n) {
+            color: rgba(0, 255, 0, 0.6);
+        }
+
+        .binary-rain {
+            position: absolute;
+            color: rgba(0, 255, 0, 0.3);
+            font-family: 'Consolas', monospace;
+            font-size: 14px;
+            animation: binaryFall 20s linear infinite;
+        }
+
+        .circuit-line {
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
+            animation: circuitMove 8s ease-in-out infinite;
+        }
+
+        .glitch-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(0, 255, 255, 0.8);
+            animation: glitchMove 12s linear infinite;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 0.8); }
+        }
+
+        @keyframes floatTech {
+            0% {
+                transform: translateY(100vh) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes binaryFall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes circuitMove {
+            0%, 100% {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes glitchMove {
+            0% {
+                transform: translate(0, 100vh);
+            }
+            25% {
+                transform: translate(100px, 75vh);
+            }
+            50% {
+                transform: translate(-50px, 50vh);
+            }
+            75% {
+                transform: translate(80px, 25vh);
+            }
+            100% {
+                transform: translate(-30px, -50px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .link-button:active {
+            animation: pulse 0.3s ease;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                max-width: 350px;
+            }
+            
+            .profile h1 {
+                font-size: 1.8em;
+            }
+            
+            .link-button {
+                padding: 15px 20px;
+                font-size: 1em;
+            }
+        }
+
+        .footer {
+            margin-top: 40px;
+            color: rgba(0, 255, 255, 0.6);
+            font-size: 0.9em;
+            font-family: 'Consolas', monospace;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <!-- Partículas tecnológicas -->
+        <div class="tech-particle" style="left: 10%; animation-delay: 0s;">&lt;/&gt;</div>
+        <div class="tech-particle" style="left: 20%; animation-delay: 2s;">{}</div>
+        <div class="tech-particle" style="left: 80%; animation-delay: 4s;">[]</div>
+        <div class="tech-particle" style="left: 70%; animation-delay: 6s;">&lt;html&gt;</div>
+        <div class="tech-particle" style="left: 30%; animation-delay: 8s;">CSS</div>
+        <div class="tech-particle" style="left: 90%; animation-delay: 10s;">JS</div>
+        <div class="tech-particle" style="left: 5%; animation-delay: 12s;">API</div>
+        <div class="tech-particle" style="left: 60%; animation-delay: 14s;">⚡</div>
+        
+        <!-- Chuva binária -->
+        <div class="binary-rain" style="left: 15%; animation-delay: 0s;">1010101</div>
+        <div class="binary-rain" style="left: 45%; animation-delay: 3s;">0110100</div>
+        <div class="binary-rain" style="left: 75%; animation-delay: 6s;">1100110</div>
+        <div class="binary-rain" style="left: 25%; animation-delay: 9s;">0101010</div>
+        <div class="binary-rain" style="left: 85%; animation-delay: 12s;">1111000</div>
+        
+        <!-- Linhas de circuito -->
+        <div class="circuit-line" style="top: 20%; left: 0; animation-delay: 0s;"></div>
+        <div class="circuit-line" style="top: 60%; right: 0; animation-delay: 4s;"></div>
+        <div class="circuit-line" style="bottom: 30%; left: 50%; animation-delay: 8s;"></div>
+        
+        <!-- Partículas glitch -->
+        <div class="glitch-particle" style="left: 10%; animation-delay: 1s;"></div>
+        <div class="glitch-particle" style="left: 90%; animation-delay: 5s;"></div>
+        <div class="glitch-particle" style="left: 50%; animation-delay: 9s;"></div>
+        <div class="glitch-particle" style="left: 30%; animation-delay: 13s;"></div>
+    </div>
+
+    <div class="container">
+        <div class="profile">
+            <div class="profile-image">
+                ⚡
+            </div>
+            <h1>Seu Nome</h1>
+            <p>&gt; Desenvolvedor & Tech Creator _</p>
+        </div>
+
+        <div class="links">
+            <a href="https://seusite.com" class="link-button website-btn">
+                <span class="icon">🌐</span>
+                &gt; Acesse Meu Site
+            </a>
+            
+            <a href="https://youtube.com/@seucanal" class="link-button youtube-btn">
+                <span class="icon">▶️</span>
+                &gt; YouTube Channel
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>&gt; Connect.exe initiated... _</p>
+        </div>
+    </div>
+
+    <script>
+        // Adiciona efeito de ripple aos botões
+        document.querySelectorAll('.link-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255,255,255,0.5);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                `;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Adiciona as animações CSS necessárias
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Efeito de paralaxe suave no mouse
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                shape.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
