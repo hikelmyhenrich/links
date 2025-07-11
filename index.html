@@ -2,167 +2,115 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#0a0a0a">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Meus Links</title>
-    <link rel="icon" href="https://hikelmyhenrich.com/wp-content/uploads/2025/06/cropped-HH-1-2.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Links oficiais de Hikelmy Henrich - Desenvolvedor e criador de conteúdo">
+    <meta name="keywords" content="Hikelmy Henrich, desenvolvedor, programador, YouTube, GitHub">
+    <meta name="author" content="Hikelmy Henrich">
+    <title>Hikelmy Henrich | Links Oficiais</title>
+    <link rel="icon" type="image/png" href="https://hikelmyhenrich.com/wp-content/uploads/2025/06/cropped-HH-1-2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        html {
-            height: 100%;
-            height: 100dvh;
-            background: #0a0a0a;
         }
 
         body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            min-height: 100dvh;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            background-attachment: fixed;
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            padding: 20px;
-            overflow-x: hidden;
+            align-items: center;
+            color: #333;
             position: relative;
-            color: #00ffff;
         }
 
         body::before {
             content: '';
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(0, 255, 0, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -2;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .container {
-            max-width: 400px;
-            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             text-align: center;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .profile {
-            margin-bottom: 40px;
-            animation: float 6s ease-in-out infinite;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .profile-image {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ff00);
-            background-size: 300% 300%;
-            animation: gradientShift 3s ease infinite, float 6s ease-in-out infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px auto;
-            font-size: 48px;
-            color: white;
-            box-shadow: 
-                0 0 20px rgba(0, 255, 255, 0.5),
-                0 0 40px rgba(255, 0, 255, 0.3),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(0, 255, 255, 0.8);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(0, 255, 255, 0.3), transparent);
-            animation: rotate 4s linear infinite;
+            border: 4px solid #667eea;
+            margin: 0 auto 1.5rem;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .profile-image:hover {
-            transform: scale(1.1);
-            box-shadow: 
-                0 0 30px rgba(0, 255, 255, 0.8),
-                0 0 60px rgba(255, 0, 255, 0.5),
-                inset 0 0 30px rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
         }
 
-        .profile h1 {
-            color: #00ffff;
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            text-shadow: 
-                0 0 10px rgba(0, 255, 255, 0.8),
-                0 0 20px rgba(0, 255, 255, 0.5),
-                0 0 30px rgba(0, 255, 255, 0.3);
+        .name {
+            font-size: 2.2rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            animation: textGlow 2s ease-in-out infinite alternate;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .profile p {
-            color: rgba(0, 255, 255, 0.8);
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            font-family: 'Consolas', monospace;
-            text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
-            letter-spacing: 1px;
+        .subtitle {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .link-button {
-            display: block;
-            width: 100%;
-            padding: 18px 25px;
-            margin: 15px 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 2px solid rgba(0, 255, 255, 0.4);
-            border-radius: 15px;
-            color: #00ffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
             text-decoration: none;
-            font-size: 1.1em;
-            font-weight: 600;
-            font-family: 'Consolas', 'Monaco', monospace;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
             position: relative;
             overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
-            box-shadow: 
-                0 4px 15px rgba(0, 255, 255, 0.25),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
-            touch-action: manipulation;
         }
 
         .link-button::before {
@@ -172,485 +120,136 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .link-button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, transparent 70%);
-            transition: all 0.5s;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
         .link-button:hover::before {
             left: 100%;
         }
 
-        .link-button:hover::after {
-            width: 300px;
-            height: 300px;
-        }
-
         .link-button:hover {
-            transform: translateY(-8px);
-            box-shadow: 
-                0 20px 40px rgba(0, 255, 255, 0.4),
-                0 0 20px rgba(0, 255, 255, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            border-color: rgba(0, 255, 255, 0.8);
-            background: rgba(0, 0, 0, 0.9);
-            color: #ffffff;
-            text-shadow: 
-                0 0 10px rgba(0, 255, 255, 0.8),
-                0 0 20px rgba(0, 255, 255, 0.6);
-        }
-
-        .website-btn {
-            border-color: rgba(0, 255, 255, 0.5);
-        }
-
-        .website-btn:hover {
-            border-color: rgba(0, 255, 255, 1);
-            box-shadow: 
-                0 20px 40px rgba(0, 255, 255, 0.4),
-                0 0 30px rgba(0, 255, 255, 0.8);
-        }
-
-        .youtube-btn {
-            border-color: rgba(255, 0, 100, 0.5);
-        }
-
-        .youtube-btn:hover {
-            border-color: rgba(255, 0, 100, 1);
-            box-shadow: 
-                0 20px 40px rgba(255, 0, 100, 0.4),
-                0 0 30px rgba(255, 0, 100, 0.8);
-            color: #ff0064;
-            text-shadow: 
-                0 0 10px rgba(255, 0, 100, 0.8),
-                0 0 20px rgba(255, 0, 100, 0.6);
-        }
-
-        .icon {
-            margin-right: 10px;
-            font-size: 1.2em;
-        }
-
-        .floating-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .tech-particle {
-            position: absolute;
-            color: rgba(0, 255, 255, 0.7);
-            font-size: 12px;
-            animation: floatTech 15s linear infinite;
-            font-family: 'Consolas', monospace;
-            will-change: transform;
-        }
-
-        .tech-particle:nth-child(odd) {
-            color: rgba(255, 0, 255, 0.7);
-        }
-
-        .tech-particle:nth-child(3n) {
-            color: rgba(0, 255, 0, 0.7);
-        }
-
-        .binary-rain {
-            position: absolute;
-            color: rgba(0, 255, 0, 0.4);
-            font-family: 'Consolas', monospace;
-            font-size: 14px;
-            animation: binaryFall 20s linear infinite;
-            will-change: transform;
-        }
-
-        .circuit-line {
-            position: absolute;
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.6), transparent);
-            animation: circuitMove 8s ease-in-out infinite;
-            will-change: transform;
-        }
-
-        .glitch-particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(0, 255, 255, 0.9);
-            animation: glitchMove 12s linear infinite;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
-            will-change: transform;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.5); }
-            100% { text-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 0.8); }
-        }
-
-        @keyframes floatTech {
-            0% {
-                transform: translateY(100vh) translateX(0px);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(50px);
-                opacity: 0;
-            }
-        }
-
-        @keyframes binaryFall {
-            0% {
-                transform: translateY(-100px);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
-
-        @keyframes circuitMove {
-            0%, 100% {
-                transform: translateX(-50px);
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes glitchMove {
-            0% {
-                transform: translate(0, 100vh);
-            }
-            25% {
-                transform: translate(100px, 75vh);
-            }
-            50% {
-                transform: translate(-50px, 50vh);
-            }
-            75% {
-                transform: translate(80px, 25vh);
-            }
-            100% {
-                transform: translate(-30px, -50px);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
 
         .link-button:active {
-            animation: pulse 0.3s ease;
+            transform: translateY(-1px);
         }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-                min-height: 100vh;
-                min-height: 100dvh; /* Dynamic viewport height para mobile */
-                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-                background-attachment: fixed;
-            }
-            
-            body::before {
-                background: 
-                    radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.15) 0%, transparent 40%),
-                    radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.15) 0%, transparent 40%),
-                    radial-gradient(circle at 40% 80%, rgba(0, 255, 0, 0.08) 0%, transparent 40%);
-            }
-            
-            .container {
-                max-width: 95%;
-                width: 100%;
-                padding: 0 10px;
-            }
-            
-            .profile-image {
-                width: 100px;
-                height: 100px;
-                font-size: 40px;
-                margin-bottom: 15px;
-            }
-            
-            .profile h1 {
-                font-size: 1.8em;
-                margin-bottom: 8px;
-                text-shadow: 
-                    0 0 15px rgba(0, 255, 255, 1),
-                    0 0 25px rgba(0, 255, 255, 0.8),
-                    0 0 35px rgba(0, 255, 255, 0.5);
-            }
-            
-            .profile p {
-                font-size: 1em;
-                margin-bottom: 25px;
-                text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
-            }
-            
-            .link-button {
-                padding: 16px 20px;
-                font-size: 1em;
-                margin: 12px 0;
-                border-radius: 12px;
-                letter-spacing: 1.5px;
-            }
-            
-            .link-button:hover {
-                transform: translateY(-5px);
-            }
-            
-            .footer {
-                margin-top: 30px;
-                font-size: 0.85em;
-            }
-            
-            /* Otimização das partículas para mobile */
-            .tech-particle {
-                font-size: 10px;
-                opacity: 0.8;
-            }
-            
-            .binary-rain {
-                font-size: 12px;
-                opacity: 0.6;
-            }
-            
-            .circuit-line {
-                width: 80px;
-                opacity: 0.7;
-            }
-            
-            .glitch-particle {
-                width: 3px;
-                height: 3px;
-                opacity: 0.8;
-            }
+        .link-button.github {
+            background: linear-gradient(45deg, #24292e, #586069);
+        }
+
+        .link-button.github:hover {
+            box-shadow: 0 10px 25px rgba(36, 41, 46, 0.4);
+        }
+
+        .link-button.youtube {
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+        }
+
+        .link-button.youtube:hover {
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+        }
+
+        .link-button.coming-soon {
+            background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+            cursor: not-allowed;
+        }
+
+        .link-button.coming-soon:hover {
+            transform: none;
+            box-shadow: 0 5px 15px rgba(149, 165, 166, 0.3);
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            z-index: 1;
         }
 
         @media (max-width: 480px) {
             .container {
-                max-width: 100%;
-                padding: 0 5px;
+                padding: 2rem 1.5rem;
+                margin: 1rem;
             }
-            
+
+            .name {
+                font-size: 1.8rem;
+            }
+
             .profile-image {
-                width: 90px;
-                height: 90px;
-                font-size: 36px;
+                width: 100px;
+                height: 100px;
             }
-            
-            .profile h1 {
-                font-size: 1.6em;
-                letter-spacing: 1px;
-            }
-            
-            .profile p {
-                font-size: 0.95em;
-            }
-            
+
             .link-button {
-                padding: 14px 18px;
-                font-size: 0.95em;
-                letter-spacing: 1px;
-            }
-            
-            .icon {
-                font-size: 1.1em;
-                margin-right: 8px;
+                padding: 0.9rem 1.2rem;
+                font-size: 0.9rem;
             }
         }
 
-        @media (max-width: 360px) {
-            .profile h1 {
-                font-size: 1.4em;
+        @media (max-width: 320px) {
+            .container {
+                padding: 1.5rem 1rem;
             }
-            
-            .link-button {
-                padding: 12px 15px;
-                font-size: 0.9em;
-            }
-        }
 
-        .footer {
-            margin-top: 40px;
-            color: rgba(0, 255, 255, 0.6);
-            font-size: 0.9em;
-            font-family: 'Consolas', monospace;
-            text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+            .name {
+                font-size: 1.6rem;
+            }
+
+            .link-button {
+                padding: 0.8rem 1rem;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="floating-shapes">
-        <!-- Partículas tecnológicas -->
-        <div class="tech-particle" style="left: 10%; animation-delay: 0s;">&lt;/&gt;</div>
-        <div class="tech-particle" style="left: 20%; animation-delay: 2s;">{}</div>
-        <div class="tech-particle" style="left: 80%; animation-delay: 4s;">[]</div>
-        <div class="tech-particle" style="left: 70%; animation-delay: 6s;">&lt;html&gt;</div>
-        <div class="tech-particle" style="left: 30%; animation-delay: 8s;">CSS</div>
-        <div class="tech-particle" style="left: 90%; animation-delay: 10s;">JS</div>
-        <div class="tech-particle" style="left: 5%; animation-delay: 12s;">API</div>
-        <div class="tech-particle" style="left: 60%; animation-delay: 14s;">⚡</div>
-        
-        <!-- Chuva binária -->
-        <div class="binary-rain" style="left: 15%; animation-delay: 0s;">1010101</div>
-        <div class="binary-rain" style="left: 45%; animation-delay: 3s;">0110100</div>
-        <div class="binary-rain" style="left: 75%; animation-delay: 6s;">1100110</div>
-        <div class="binary-rain" style="left: 25%; animation-delay: 9s;">0101010</div>
-        <div class="binary-rain" style="left: 85%; animation-delay: 12s;">1111000</div>
-        
-        <!-- Linhas de circuito -->
-        <div class="circuit-line" style="top: 20%; left: 0; animation-delay: 0s;"></div>
-        <div class="circuit-line" style="top: 60%; right: 0; animation-delay: 4s;"></div>
-        <div class="circuit-line" style="bottom: 30%; left: 50%; animation-delay: 8s;"></div>
-        
-        <!-- Partículas glitch -->
-        <div class="glitch-particle" style="left: 10%; animation-delay: 1s;"></div>
-        <div class="glitch-particle" style="left: 90%; animation-delay: 5s;"></div>
-        <div class="glitch-particle" style="left: 50%; animation-delay: 9s;"></div>
-        <div class="glitch-particle" style="left: 30%; animation-delay: 13s;"></div>
-    </div>
-
     <div class="container">
-        <div class="profile">
-            <div class="profile-image">
-                 <img src="https://hikelmyhenrich.com/wp-content/uploads/2025/06/464963474_569834695439609_5670389920476896468_n.jpg" 
-                 alt="Foto de Hikelmy Henrich" 
-                 style="width: 100px; height: 100px; border-radius: 50%;">
-            </div>
-            <h1>Hikelmy Henrich</h1>
-            <p>&gt; Desenvolvedor & Entusiasta de Tech _</p>
-        </div>
-
-        <div class="links">
-            <a href="https://hikelmyhenrich.com" class="link-button website-btn">
-                <span class="icon">🌐</span>
-                &gt; Acesse Meu Site
+        <img src="https://hikelmyhenrich.com/wp-content/uploads/2025/06/464963474_569834695439609_5670389920476896468_n.jpg" alt="Hikelmy Henrich" class="profile-image">
+        
+        <h1 class="name">Hikelmy Henrich</h1>
+        <p class="subtitle">Desenvolvedor & Criador de Conteúdo</p>
+        
+        <div class="links-container">
+            <a href="https://github.com/hikelmyhenrich/" target="_blank" rel="noopener noreferrer" class="link-button github">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
             </a>
             
-            <a href="https://www.youtube.com/@hikelmy.henrich" class="link-button youtube-btn">
-                <span class="icon">▶️</span>
-                &gt; Canal no YouTube
+            <a href="https://www.youtube.com/@hikelmy.henrich" target="_blank" rel="noopener noreferrer" class="link-button youtube">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                Canal no YouTube
             </a>
-        </div>
-
-        <div class="footer">
-            <p>&gt; Connect.exe initiated... _</p>
+            
+            <button class="link-button coming-soon">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                Produtos (Em breve)
+            </button>
         </div>
     </div>
-
-    <script>
-        // Adiciona efeito de ripple aos botões
-        document.querySelectorAll('.link-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(255,255,255,0.5);
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                `;
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
-
-        // Adiciona as animações CSS necessárias
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Efeito de paralaxe suave no mouse
-        document.addEventListener('mousemove', (e) => {
-            const shapes = document.querySelectorAll('.shape');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 0.5;
-                shape.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-            });
-        });
-    </script>
+    
+    <div class="footer">
+        © 2025 Hikelmy Henrich. Todos os direitos reservados.
+    </div>
 </body>
 </html>
